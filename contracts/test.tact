@@ -5,7 +5,6 @@ const TESTER_ROLE: Int = 2;
 
 contract TestAccessControl with Deployable, AccessControl {
     admin_initialized: Bool = false;
-    roles_length: Int = 0;
     user_roles: map<Address, UserRoles> = emptyMap();
 
     init() {

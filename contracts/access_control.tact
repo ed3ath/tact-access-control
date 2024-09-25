@@ -30,7 +30,6 @@ const DEFAULT_ADMIN_ROLE: Int = 1;
 
 trait AccessControl {
     admin_initialized: Bool;
-    roles_length: Int;
     user_roles: map<Address, UserRoles>;
 
     receive(msg: GrantRole) {
