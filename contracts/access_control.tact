@@ -1,6 +1,6 @@
 
 struct UserRoles {
-    roles: map<Int as uint16, Int as uint8>;
+    roles: map<Int as uint8, Int as uint8>;
     length: Int;
 }
 
@@ -45,7 +45,7 @@ trait AccessControl {
 
     fun _initAdmin(user: Address) {
         require(!self.admin_initialized, "Already initialized");
-        let roles: map<Int as uint16, Int as uint8> = emptyMap();
+        let roles: map<Int as uint8, Int as uint8> = emptyMap();
         roles.set(0, DEFAULT_ADMIN_ROLE);
         let userRoles: UserRoles = UserRoles{
             roles: roles,
@@ -64,7 +64,7 @@ trait AccessControl {
             userRoles.roles.set(userRoles.length, role);
             self.user_roles.set(user, userRoles);
         } else {
-            let roles: map<Int as uint16, Int as uint8> = emptyMap();
+            let roles: map<Int as uint8, Int as uint8> = emptyMap();
             roles.set(0, role);
             let userRoles: UserRoles = UserRoles{
                 roles: roles,
